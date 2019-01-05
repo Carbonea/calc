@@ -52,209 +52,66 @@ public class NumberPanel extends JPanel {
 
         createButtons();
 
-        addButtons();
+        
 
     }
 
 
     public void createButtons() {
-        b0 = new JButton("0");
-        b0.addActionListener(new ReactionToB0());
-        b1 = new JButton("1");
-        b1.addActionListener(new ReactionToB1());
-        b2 = new JButton("2");
-        b2.addActionListener(new ReactionToB2());
-        b3 = new JButton("3");
-        b3.addActionListener(new ReactionToB3());
-        b4 = new JButton("4");
-        b4.addActionListener(new ReactionToB4());
-        b5 = new JButton("5");
-        b5.addActionListener(new ReactionToB5());
-        b6 = new JButton("6");
-        b6.addActionListener(new ReactionToB6());
-        b7 = new JButton("7");
-        b7.addActionListener(new ReactionToB7());
-        b8 = new JButton("8");
-        b8.addActionListener(new ReactionToB8());
-        b9 = new JButton("9");
-        b9.addActionListener(new ReactionToB9());
-        bAdd = new JButton("+");
-        bAdd.addActionListener(new ReactionTobAdd());
-        bSub = new JButton("-");
-        bSub.addActionListener(new ReactionTobSubs());
-        bMult = new JButton("*");
-        bMult.addActionListener(new ReactionTobMult());
-        bDiv = new JButton("/");
-        bDiv.addActionListener(new ReactionTobDiv());
-        bResult = new JButton("=");
-        bResult.addActionListener(new ReactionTobResult());
-        bBackspc = new JButton("<--");
-        bBackspc.addActionListener(new ReactionTobBackspc());
-        bComma = new JButton(",");
-        bComma.addActionListener(new ReactionTobComma());
-        bClearAll = new JButton("C");
-        bClearAll.addActionListener(new ReactionTobClearAll());
-        bClearEntry = new JButton("CE");
-        bClearEntry.addActionListener(new ReactionTobClearEntry());
-        bExponentiation = new JButton("<html>x<sup>2</sup></html>");
-        bExponentiation.addActionListener(new ReactionTobExponentiation());
-        bElement = new JButton('\u221A' + "x");
-        bElement.addActionListener(new ReactionTobElement());
-        bLn = new JButton("ln");
-        bLn.addActionListener(new ReactionTobLn());
-        bSin = new JButton("Sin");
-        bSin.addActionListener(new ReactionTobSin());
-        bCos = new JButton("Cos");
-        bCos.addActionListener(new ReactionTobCos());
-        bTan = new JButton("Tg");
-        bTan.addActionListener(new ReactionTobTan());
-        bPlusMinus = new JButton("\u00B1");
-        bPlusMinus.addActionListener(new ReactionTobPlusMinus());
-        bMod = new JButton("Mod");
-        bMod.addActionListener(new ReactionTobMod());
-        bEquation = new JButton("Eq");
-        bEquation.addActionListener(new ReactionTobEquation());
-    }
-
-    public void addButtons() {
-
-
-        constraints.gridx = 0;
-        constraints.gridy = 9;
-        add(bPlusMinus,constraints);
-
-
-        constraints.gridx = 1;
-        constraints.gridy = 9;
-        add(b0, constraints);
-
-
-        constraints.gridx = 2;
-        constraints.gridy = 9;
-        add(bComma, constraints);
-
-
-        constraints.gridx = 3;
-        constraints.gridy = 9;
-        add(bResult, constraints);
-
-        constraints.gridx = 0;
-        constraints.gridy = 8;
-        add(b1, constraints);
-
-
-        constraints.gridx = 1;
-        constraints.gridy = 8;
-        add(b2, constraints);
-
-
-        constraints.gridx = 2;
-        constraints.gridy = 8;
-        add(b3, constraints);
-
-
-        constraints.gridx = 3;
-        constraints.gridy = 8;
-        add(bAdd, constraints);
-
-        constraints.gridx = 0;
-        constraints.gridy = 7;
-        add(b4, constraints);
-
-
-        constraints.gridx = 1;
-        constraints.gridy = 7;
-        add(b5, constraints);
-
-
-        constraints.gridx = 2;
-        constraints.gridy = 7;
-        add(b6, constraints);
-
-
-        constraints.gridx = 3;
-        constraints.gridy = 7;
-        add(bSub, constraints);
-
-        constraints.gridx = 0;
-        constraints.gridy = 6;
-        add(b7, constraints);
-
-
-        constraints.gridx = 1;
-        constraints.gridy = 6;
-        add(b8, constraints);
-
-
-        constraints.gridx = 2;
-        constraints.gridy = 6;
-        add(b9, constraints);
-
-
-        constraints.gridx = 3;
-        constraints.gridy = 6;
-        add(bMult, constraints);
-
-        constraints.gridx = 0;
-        constraints.gridy = 5;
-        add(bClearEntry,constraints);
-
-
-        constraints.gridx = 1;
-        constraints.gridy = 5;
-        add(bClearAll, constraints);
-
-
-        constraints.gridx = 2;
-        constraints.gridy = 5;
-        add(bBackspc, constraints);
-
-
-        constraints.gridx = 3;
-        constraints.gridy = 5;
-        add(bDiv, constraints);
+        buttonFactory("\u00B1",new ReactionTobPlusMinus(),0,9);
+        buttonFactory("0",new ReactionToB0(),1,9);
+        buttonFactory(",",new ReactionTobComma(),2,9);
+        buttonFactory("=",new ReactionTobResult(),3,9);
+        buttonFactory("1",new ReactionToB1(),0,8);
+        buttonFactory("2",new ReactionToB2(),0,8);
+        buttonFactory("3",new ReactionToB3(),1,8);
+        buttonFactory("+",new ReactionTobAdd(),2,9);
+        buttonFactory("4",new ReactionToB4(),3,9);
+        buttonFactory("5",new ReactionToB5(),0,7);
+        buttonFactory("6",new ReactionToB6(),1,7);
+        buttonFactory("-",new ReactionTobSubs(),2,7);
+        buttonFactory("7",new ReactionToB7(),3,7);
+        buttonFactory("8",new ReactionToB8(),0,6);
+        buttonFactory("9" ,new ReactionToB9(),1,6);
+        buttonFactory("*" ,new ReactionTobMult(),2,6);
+        buttonFactory("CE",new ReactionTobClearEntry(),0,5);
+        buttonFactory("C" ,new ReactionTobClearAll(),1,5);
+        buttonFactory("<<",new ReactionTobBackspc(),2,5);
+        buttonFactory("/",new ReactionTobDiv(),3,5);
+        buttonFactory('\u221A' + "x" ,new ReactionTobElement(),0,4);
+        buttonFactory("<html>x<sup>2</sup></html>",new ReactionTobExponentiation(),1,4);
+        buttonFactory("Sin",new ReactionTobSin(),2,4);
+        buttonFactory("Cos",new ReactionTobCos(),3,4);
+        buttonFactory("Eq",new ReactionTobEquation(),0,3);
+        buttonFactory("Mod" ,new ReactionTobMod(),1,3);
+        buttonFactory("Tan",new ReactionTobTan(),2,3);
+        buttonFactory("ln",new ReactionTobLn(),3,3);
 
 
 
-        constraints.gridx = 0;
-        constraints.gridy = 4;
-        add(bElement,constraints);
 
 
-        constraints.gridx = 1;
-        constraints.gridy = 4;
-        add(bExponentiation, constraints);
-
-
-        constraints.gridx = 2;
-        constraints.gridy = 4;
-        add(bSin,constraints);
-
-
-        constraints.gridx = 3;
-        constraints.gridy = 4;
-        add(bCos,constraints);
-
-
-        constraints.gridx = 0;
-        constraints.gridy = 3;
-        add(bEquation,constraints);
-
-
-        constraints.gridx = 1;
-        constraints.gridy = 3;
-        add(bMod,constraints);
-
-        constraints.gridx = 2;
-        constraints.gridy = 3;
-        add(bTan,constraints);
-
-        constraints.gridx = 3;
-        constraints.gridy = 3;
-        add(bLn,constraints);
 
 
     }
+
+
+
+
+    public void buttonFactory(String text, ActionListener cos, int x, int y){
+
+        JButton button = new JButton(text);
+        constraints.gridx = x;
+        constraints.gridy = y;
+        button.addActionListener(cos);
+
+        panel.add(button,constraints);
+
+
+
+
+    }
+
 
 
    // reactions
